@@ -1,0 +1,27 @@
+{
+  "name": "shopify-hmac-validation",
+  "version": "0.0.1",
+  "description": "WORK IN PROGRESS  1. Initial will handle, installation hmac validation 2. Webhook validation 3. Bolt in a suite or validators for server side validation. A simple node package that takes in a full request or query string object and validates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leighs-hammer/shopify-hmac-validation.git"
+  },
+  "author": "Leigh Barnes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leighs-hammer/shopify-hmac-validation/issues"
+  },
+  "homepage": "https://github.com/leighs-hammer/shopify-hmac-validation#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "query-string": "^6.2.0"
+  }
+}
