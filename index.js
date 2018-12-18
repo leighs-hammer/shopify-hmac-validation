@@ -17,6 +17,7 @@ const isObject =  (value) => {
 	return value && typeof value === 'object' && value.constructor === Object;
 }
 
+// Validator
 const checkHmacValidity = (secret, qs) => {
 	// should we add a message
 	if (!secret || !qs) { return false }
@@ -39,15 +40,13 @@ const checkHmacValidity = (secret, qs) => {
 	if (!obj.hmac) { return false }
 
 	const hmac = obj.hmac
-	const removeKey = (key, {[key]: _, ...rest}) => rest
-	obj = removeKey("hmac", obj)
-	console.log("OBJECT", obj)
-  // let input = qs.stringify({ code, shop, timestamp });
-  // let generatedHash = crypto.createHmac('sha256', secret).update(input).digest('hex');
+	const removeHmac = (key, {[key]: _, ...rest}) => rest
+	obj = removeHmac("hmac", obj)
+	let input = queryString.stringify(obj)
+	let hash = crypto.createHmac('sha256', secret).update(input).digest('hex')
 	// validate and return
-  // return generatedHash !== hmac;
+  return hash === hmac
 }
 
-module.exports = {
-  checkHmacValidity,
-}
+
+module.exports = checkHmacValidity
