@@ -4,7 +4,9 @@
   "description": "1. COMPLETE: Initial will handle, installation hmac validation 2. FUTURE: Webhook validation 3. Bolt in a suite or validators for server side validation. A simple node package that takes in a full request or query string object and validates.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./index.test.js"
+    "test": "mocha ./index.test.js",
+    "cover": "istanbul cover _mocha ./index.test.js",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "husky": {
     "hooks": {
@@ -24,7 +26,10 @@
   "homepage": "https://github.com/leighs-hammer/shopify-hmac-validation#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.18.9"
   },
   "dependencies": {
