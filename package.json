@@ -1,6 +1,6 @@
 {
   "name": "shopify-hmac-validation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "1. COMPLETE: Initial will handle, installation hmac validation 2. FUTURE: Webhook validation 3. Bolt in a suite or validators for server side validation. A simple node package that takes in a full request or query string object and validates.",
   "main": "index.js",
   "scripts": {

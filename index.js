@@ -17,7 +17,12 @@ const isObject =  (value) => {
 	return value && typeof value === 'object' && value.constructor === Object;
 }
 
-// Validator
+
+/**
+ * checkHmacValidity
+ * @param {sting} secret - Shopify app secret, ( found in partner dashboard)
+ * @param {string // object} qs ( string or object of query passed from shopify including hmac)
+ */
 const checkHmacValidity = (secret, qs) => {
 	// should we add a message
 	if (!secret || !qs) { return false }
