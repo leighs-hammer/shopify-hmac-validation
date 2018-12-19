@@ -8,7 +8,7 @@
 ## Overview 
 
 1. This is only installation HMAC validation, this will not work for Webhook validation at present.
-2. This is not intended nor should it be used for client side apps, as this will require surfacing your app secret tot he function and as such the world if used client side. The intention was for this to be used backend or serverless to validate the HMAC of a request. Take heed of this this is important for your apps security. 
+2. This is not intended nor should it be used for client side apps, as this will require surfacing your app secret to the function and as such the world if used client side. The intention was for this to be used backend or serverless to validate the HMAC of a request. Take heed of this this is important for your apps security. 
 
 ## Usage
 
@@ -20,6 +20,6 @@
 
 Example: 
 
-`checkHmacValidity("SOMEKEY","SOMESTRING")`
+`checkHmacValidity("SOMEKEY","SOMESTRING or {SOMEOBJECT}")`
 
 In the github is a test that has a valid test object and string if you would like to reference that other wise I will place a more indepth docs out in time.
