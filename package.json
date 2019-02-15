@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./index.test.js",
-    "codecov" : "istanbul cover ./node_modules/mocha/bin/_mocha ./index.test.js --report lcovonly -- -R spec && codecov"
+    "codecov" : "istanbul cover ./node_modules/mocha/bin/_mocha ./index.test.js --report lcovonly -- -R spec && codecov -t 8a790055-597f-49e6-af81-ccbee1f0f1de"
   },
   "husky": {
     "hooks": {
