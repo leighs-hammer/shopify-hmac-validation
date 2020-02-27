@@ -1,5 +1,5 @@
 /**
- * A simple HMAC validator fior shopify app instaltation stages at present
+ * A simple HMAC validator for shopify app instaltation stages at present
  * This is designed as a backend package as it requires the secret key to be surfaced to the function,
  * This can be used using a serverless function, Google or amazon lambda would do the trick if you
  * are purely building client side. 
