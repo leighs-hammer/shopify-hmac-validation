@@ -1,11 +1,11 @@
 {
   "name": "shopify-hmac-validation",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Validation for Shopify HMAC on app installation steps.",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./index.test.js",
-    "codecov" : "istanbul cover ./node_modules/mocha/bin/_mocha ./index.test.js --report lcovonly -- -R spec && codecov -t 8a790055-597f-49e6-af81-ccbee1f0f1de"
+    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha ./index.test.js --report lcovonly -- -R spec && codecov -t 8a790055-597f-49e6-af81-ccbee1f0f1de"
   },
   "husky": {
     "hooks": {
