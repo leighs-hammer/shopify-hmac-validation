@@ -1,6 +1,6 @@
 {
   "name": "shopify-hmac-validation",
-  "version": "0.1.7",
+  "version": "1.0.4",
   "description": "Validation for Shopify HMAC on app installation steps.",
   "main": "index.js",
   "scripts": {

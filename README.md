@@ -4,17 +4,31 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/leighs-hammer/shopify-hmac-validation/badge.svg?targetFile=package.json)](https://snyk.io/test/github/leighs-hammer/shopify-hmac-validation?targetFile=package.json)
 ![](https://img.shields.io/twitter/follow/@leighb4rnes.svg?label=follow&style=social)
 
+## BREAKING CHANGE
+
+if you were previously using common JS : `const checkHmacValidity = require('shopify-hmac-validation')`
+
+this will now need to either be imported as default or implicitly. 
+`const checkHmacValidity = require('shopify-hmac-validation').checkHmacValidity`
+or
+`const {checkHmacValidity} = require('shopify-hmac-validation')`
+
+Only named exports are now provided. Implicitly load them. 
+
+
+
 
 ## Overview 
 
-1. This is only installation HMAC validation, this will not work for Webhook validation at present.
-2. This is not intended nor should it be used for client side apps, as this will require surfacing your app secret to the function and as such the world if used client side. The intention was for this to be used backend or serverless to validate the HMAC of a request. Take heed of this this is important for your apps security. 
+1. checkHmacValidity : Installation hmac validation
+2. checkWebhookHmacValidity : Webhook validation
+3. createRawBody : NextJS helper to save from turning off parser
 
-## Usage
+## Usage: checkHmacValidity
 
 1. Install`npm install shopify-hmac-validation --save`
-2. Import `const checkHmacValidity = require('')`
-3. Pass it your APP key ( partners.shopify.com)
+2. Import `const checkHmacValidity = require('shopify-hmac-validation').checkHmacValidity` 
+3. Pass it your APP Secret ( partners.shopify.com)
 4. PAss it either a querystring object or simply the string it will figure it out (location.search)
 5. Response will simply be a bool, true if they match, false if not
 
@@ -23,3 +37,19 @@ Example:
 `checkHmacValidity("SOMEKEY","SOMESTRING or {SOMEOBJECT}")`
 
 In the github is a test that has a valid test object and string if you would like to reference that other wise I will place a more indepth docs out in time.
+
+## Usage: checkWebhookHmacValidity
+
+1. Install`npm install shopify-hmac-validation --save`
+2. Import `const checkHmacValidity = require('shopify-hmac-validation').checkWebhookHmacValidity`
+3. Pass it your APP Secret ( partners.shopify.com)
+3.1 Pass it the raw body of the webook request
+3.2 Pass in the hmac from the headers `x-shopify-hmac-sha256`
+5. Response will simply be a bool, true if they match, false if not
+
+## Usage: checkHmacValidity
+
+1. Install`npm install shopify-hmac-validation --save`
+2. Import `const createRawBody = require('shopify-hmac-validation').createRawBody`
+3. A request.body object ( useful with next js body parsed rer)
+5. Response will simply be a string that can be used as the raw body in webhook validation

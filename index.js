@@ -48,10 +48,33 @@ const checkHmacValidity = (secret, qs) => {
 	const removeHmac = (key, {[key]: _, ...rest}) => rest
 	obj = removeHmac("hmac", obj)
 	let input = queryString.stringify(obj)
-	let hash = crypto.createHmac('sha256', secret).update(input).digest('hex')
+	let hash = crypto.createHmac('SHA256', secret).update(input).digest('hex')
 	// validate and return
   return hash === hmac
 }
 
 
-module.exports = checkHmacValidity
+/**
+ * 
+ * @param {sting} secret - Shopify app secret, ( found in partner dashboard)
+ * @param {string} rawBody - raw body of the request 
+ * @param {string} hmac - Header HMAC
+ */
+const checkWebhookHmacValidity = (secret, rawBody, hmac) => {
+	if(!secret || !rawBody || !hmac) { return false}
+
+	// Nothing fancy here
+	const hash = crypto.createHmac('SHA256', secret).update(rawBody).digest('base64')
+	return hash === hmac
+}
+
+const createRawBody = (bodyObject) => Buffer.from(JSON.stringify(bodyObject)).toString('utf8')
+
+
+
+module.exports = {
+	default: checkHmacValidity,
+	checkHmacValidity,
+	checkWebhookHmacValidity,
+	createRawBody,
+}
