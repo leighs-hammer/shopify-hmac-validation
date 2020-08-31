@@ -47,7 +47,7 @@ In the github is a test that has a valid test object and string if you would lik
 3.2 Pass in the hmac from the headers `x-shopify-hmac-sha256`
 5. Response will simply be a bool, true if they match, false if not
 
-## Usage: checkHmacValidity
+## Usage: createRawBody
 
 1. Install`npm install shopify-hmac-validation --save`
 2. Import `const createRawBody = require('shopify-hmac-validation').createRawBody`
