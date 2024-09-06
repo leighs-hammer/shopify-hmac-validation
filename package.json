@@ -34,6 +34,6 @@
     "nodemon": "^1.18.9"
   },
   "dependencies": {
-    "query-string": "^6.2.0"
+    "query-string": "^7.1.3"
   }
 }
